@@ -17,19 +17,25 @@ public class Zisteniecisla {
 
             };
 
-    boolean riadok(int riadokcislo, int cislo1) {
+
+
+
+
+
+
+    boolean riadok(int riadokcislo, int cislo) {
 
         for (int i = 0; i < velkost; i++)
-            if (pole[riadokcislo][i] == cislo1) {
+            if (pole[riadokcislo][i] == cislo) {
                 return true;
             }
             return false;
 
     }
 
-    boolean stlpec (int stlpeccislo, int cislo2){
+    boolean stlpec (int stlpeccislo, int cislo){
         for (int i = 0; i<velkost; i++)
-            if (pole[stlpeccislo][i]==cislo2) {
+            if (pole[stlpeccislo][i]==cislo) {
                 return true;
             }
             return false;
@@ -57,5 +63,9 @@ return false;
     }
 
 
+    boolean mozemdosadit(int riadokcislo, int stlpeccislo, int cislo){
+if (stlpec(stlpeccislo,cislo)&&riadok(riadokcislo,cislo)&&stvorec(riadokcislo,stlpeccislo,cislo)) return true;
+return false;
+    }
 
 }
