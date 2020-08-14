@@ -4,15 +4,15 @@ public class Doplnanie {
 
     Zisteniecisla empty = new Zisteniecisla();
 
-    boolean prazdne(int riadokcislo, int stlpeccislo) {
-        if (empty.pole[riadokcislo][stlpeccislo] == 0) return true;
+    boolean emptybox(int rowNumber, int columnNumber) {
+        if (empty.sudoku[rowNumber][columnNumber] == 0) return true;
         return false;
     }
 
-    boolean doplnit() {
+    boolean backtracking() {
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                if (prazdne(i, j)) {
+                if (emptybox(i, j)) {
                     for (int x = 1; x < 9; x++) {
                     }
                 }

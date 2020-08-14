@@ -21,7 +21,7 @@ int z = Integer.parseInt(z1);
         Doplnanie b = new Doplnanie();
 
         System.out.println(a.mozemdosadit(x,y,z));
-        System.out.println(b.prazdne(x,y));
+        System.out.println(b.emptybox(x,y));
 
 
 

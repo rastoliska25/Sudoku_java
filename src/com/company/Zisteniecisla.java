@@ -1,8 +1,8 @@
 package com.company;
 
 public class Zisteniecisla {
-    int velkost = 9;
-    int pole[][] =
+    int size = 9;
+    int sudoku[][] =
             {
 
                     {5, 3, 0, 0, 7, 0, 0, 0, 0},
@@ -23,39 +23,39 @@ public class Zisteniecisla {
 
 
 
-    boolean riadok(int riadokcislo, int cislo) {
+    boolean row(int rownumber, int cislo) {
 
-        for (int i = 0; i < velkost; i++)
-            if (pole[riadokcislo][i] == cislo) {
+        for (int i = 0; i < size; i++)
+            if (sudoku[rownumber][i] == cislo) {
                 return true;
             }
             return false;
 
     }
 
-    boolean stlpec (int stlpeccislo, int cislo){
-        for (int i = 0; i<velkost; i++)
-            if (pole[i][stlpeccislo]==cislo) {
+    boolean column (int columnNumber, int fillNumber){
+        for (int i = 0; i<size; i++)
+            if (sudoku[i][columnNumber]==fillNumber) {
                 return true;
             }
             return false;
 
     }
 
-    boolean stvorec (int stlpeccislo, int riadokcislo, int cislo){
+    boolean stvorec (int columnNumber, int rowNumber, int fillNumber){
         int x = 0;
         int y = 0;
-        if (stlpeccislo<3)  x=3;
-        else if (stlpeccislo<6) x=6;
-        else if (stlpeccislo<9) x=9;
+        if (columnNumber<3)  x=3;
+        else if (columnNumber<6) x=6;
+        else if (columnNumber<9) x=9;
 
-        if (riadokcislo<3)  y=3;
-        else if (riadokcislo<6) y=6;
-        else if (riadokcislo<9) y=9;
+        if (rowNumber<3)  y=3;
+        else if (rowNumber<6) y=6;
+        else if (rowNumber<9) y=9;
 
 for (int i = x-3; i<x; i++){
     for (int j = y-3; j<y; j++){
-if (pole[i][j]==cislo) return true;
+if (sudoku[i][j]==fillNumber) return true;
     }
 }
 return false;
@@ -63,8 +63,8 @@ return false;
     }
 
 
-    boolean mozemdosadit(int riadokcislo, int stlpeccislo, int cislo){
-if (!stlpec(stlpeccislo,cislo)&&!riadok(riadokcislo,cislo)&&!stvorec(riadokcislo,stlpeccislo,cislo)) return true;
+    boolean mozemdosadit(int rowNumber, int columnNumber, int fillNumber){
+if (!column(columnNumber,fillNumber)&&!row(rowNumber,fillNumber)&&!stvorec(rowNumber,columnNumber,fillNumber)) return true;
 return false;
     }
 
