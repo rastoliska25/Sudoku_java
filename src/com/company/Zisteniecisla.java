@@ -1,10 +1,9 @@
 package com.company;
 
 public class Zisteniecisla {
-    int size = 9;
-    int sudoku[][] =
+    int sudoku[][];
+    int sudokuinput[][] =
             {
-
                     {5, 3, 0, 0, 7, 0, 0, 0, 0},
                     {6, 0, 0, 1, 9, 5, 0, 0, 0},
                     {0, 9, 8, 0, 0, 0, 0, 6, 0},
@@ -14,10 +13,13 @@ public class Zisteniecisla {
                     {0, 6, 0, 0, 0, 0, 2, 8, 0},
                     {0, 0, 0, 4, 1, 9, 0, 0, 5},
                     {0, 0, 0, 0, 8, 0, 0, 7, 9},
-
             };
 
 
+
+public Zisteniecisla() {
+    sudoku=sudokuinput;
+    }
 
 
 
@@ -25,7 +27,7 @@ public class Zisteniecisla {
 
     boolean row(int rowNumber, int fillNumber) {
 
-        for (int i = 0; i < size; i++)
+        for (int i = 0; i < 9; i++)
             if (sudoku[rowNumber][i] == fillNumber) {
                 return true;
             }
@@ -34,7 +36,7 @@ public class Zisteniecisla {
     }
 
     boolean column (int columnNumber, int fillNumber){
-        for (int i = 0; i<size; i++)
+        for (int i = 0; i<9; i++)
             if (sudoku[i][columnNumber]==fillNumber) {
                 return true;
             }
@@ -42,7 +44,7 @@ public class Zisteniecisla {
 
     }
 
-    boolean stvorec (int columnNumber, int rowNumber, int fillNumber){
+    boolean box (int columnNumber, int rowNumber, int fillNumber){
         int x = 0;
         int y = 0;
         if (columnNumber<3)  x=3;
@@ -63,8 +65,8 @@ return false;
     }
 
 
-    boolean mozemdosadit(int rowNumber, int columnNumber, int fillNumber){
-if (!column(columnNumber,fillNumber)&&!row(rowNumber,fillNumber)&&!stvorec(rowNumber,columnNumber,fillNumber)) return true;
+    boolean conditions(int rowNumber, int columnNumber, int fillNumber){
+if (!column(columnNumber,fillNumber)&&!row(rowNumber,fillNumber)&&!box(rowNumber,columnNumber,fillNumber)) return true;
 return false;
     }
 

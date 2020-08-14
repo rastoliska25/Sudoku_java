@@ -14,6 +14,7 @@ public class Doplnanie {
             for (int j = 0; j < 9; j++) {
                 if (emptybox(i, j)) {
                     for (int x = 1; x < 9; x++) {
+                        if (empty.conditions(i,j,x));
                     }
                 }
             }
