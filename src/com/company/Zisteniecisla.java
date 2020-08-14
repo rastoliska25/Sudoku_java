@@ -23,10 +23,10 @@ public class Zisteniecisla {
 
 
 
-    boolean row(int rownumber, int cislo) {
+    boolean row(int rowNumber, int fillNumber) {
 
         for (int i = 0; i < size; i++)
-            if (sudoku[rownumber][i] == cislo) {
+            if (sudoku[rowNumber][i] == fillNumber) {
                 return true;
             }
             return false;
