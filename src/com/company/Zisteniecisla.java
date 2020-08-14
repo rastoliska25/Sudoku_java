@@ -35,7 +35,7 @@ public class Zisteniecisla {
 
     boolean stlpec (int stlpeccislo, int cislo){
         for (int i = 0; i<velkost; i++)
-            if (pole[stlpeccislo][i]==cislo) {
+            if (pole[i][stlpeccislo]==cislo) {
                 return true;
             }
             return false;
@@ -64,7 +64,7 @@ return false;
 
 
     boolean mozemdosadit(int riadokcislo, int stlpeccislo, int cislo){
-if (stlpec(stlpeccislo,cislo)&&riadok(riadokcislo,cislo)&&stvorec(riadokcislo,stlpeccislo,cislo)) return true;
+if (!stlpec(stlpeccislo,cislo)&&!riadok(riadokcislo,cislo)&&!stvorec(riadokcislo,stlpeccislo,cislo)) return true;
 return false;
     }
 
