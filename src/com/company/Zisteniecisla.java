@@ -1,48 +1,20 @@
 package com.company;
 
 public class Zisteniecisla {
-    int sudoku[][];
-    int sudokuinput[][] =
-            {
-                    {5, 3, 0, 0, 7, 0, 0, 0, 0},
-                    {6, 0, 0, 1, 9, 5, 0, 0, 0},
-                    {0, 9, 8, 0, 0, 0, 0, 6, 0},
-                    {8, 0, 0, 0, 6, 0, 0, 0, 3},
-                    {4, 0, 0, 8, 0, 3, 0, 0, 1},
-                    {7, 0, 0, 0, 2, 0, 0, 0, 6},
-                    {0, 6, 0, 0, 0, 0, 2, 8, 0},
-                    {0, 0, 0, 4, 1, 9, 0, 0, 5},
-                    {0, 0, 0, 0, 8, 0, 0, 7, 9},
-            };
+    int[][] sudoku;
 
 
+public Zisteniecisla(int[][] sudoku) {
+    this.sudoku = new int[9][9];
 
-public Zisteniecisla() {
-    sudoku=sudokuinput;
+    for (int i=0; i<9;i++){
+        System.arraycopy(sudoku[i], 0, this.sudoku[i], 0, 9);
     }
 
 
 
-
-
-    boolean row(int rowNumber, int fillNumber) {
-
-        for (int i = 0; i < 9; i++)
-            if (sudoku[rowNumber][i] == fillNumber) {
-                return true;
-            }
-            return false;
-
     }
 
-    boolean column (int columnNumber, int fillNumber){
-        for (int i = 0; i<9; i++)
-            if (sudoku[i][columnNumber]==fillNumber) {
-                return true;
-            }
-            return false;
-
-    }
 
     boolean box (int columnNumber, int rowNumber, int fillNumber){
         int x = 0;
@@ -65,9 +37,32 @@ return false;
     }
 
 
+
+    boolean row(int rowNumber, int fillNumber) {
+
+        for (int i = 0; i < 9; i++)
+            if (sudoku[rowNumber][i] == fillNumber) {
+                return true;
+            }
+        return false;
+
+    }
+
+    boolean column (int columnNumber, int fillNumber){
+        for (int i = 0; i<9; i++)
+            if (sudoku[i][columnNumber]==fillNumber) {
+                return true;
+            }
+        return false;
+
+    }
+
+
     boolean conditions(int rowNumber, int columnNumber, int fillNumber){
 if (!column(columnNumber,fillNumber)&&!row(rowNumber,fillNumber)&&!box(rowNumber,columnNumber,fillNumber)) return true;
 return false;
     }
 
 }
+
+

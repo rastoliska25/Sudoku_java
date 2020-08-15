@@ -9,29 +9,12 @@ public class Main {
 
 
 
-
-
-
-        Scanner sc = new Scanner(System.in);
-        System.out.println("zadajte riadok, stlpec a cislo");
-String x1=sc.nextLine();
-String y1=sc.nextLine();
-String z1=sc.nextLine();
-
-int x = Integer.parseInt(x1);
-int y = Integer.parseInt(y1);
-int z = Integer.parseInt(z1);
-
-
-
-        Zisteniecisla a = new Zisteniecisla();
-        Doplnanie b = new Doplnanie();
-
-        System.out.println(a.conditions(x,y,z));
-
-
-        System.out.println(a.conditions(x,y,z));
-        System.out.println(b.emptybox(x,y));
+        Doplnanie complete = new Doplnanie();
+complete.finished();
+if (complete.backtracking()) {
+    System.out.println("OKKKKKK");
+    complete.finished();
+}
 
 
     }
