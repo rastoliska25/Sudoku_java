@@ -38,7 +38,7 @@ return false;
 
 
 
-    boolean row(int rowNumber, int fillNumber) {
+    boolean row (int rowNumber, int fillNumber) {
 
         for (int i = 0; i < 9; i++)
             if (sudoku[rowNumber][i] == fillNumber) {
@@ -59,8 +59,7 @@ return false;
 
 
     boolean conditions(int rowNumber, int columnNumber, int fillNumber){
-if (!column(columnNumber,fillNumber)&&!row(rowNumber,fillNumber)&&!box(rowNumber,columnNumber,fillNumber)) return true;
-return false;
+        return !column(columnNumber, fillNumber) && !row(rowNumber, fillNumber) && !box(rowNumber, columnNumber, fillNumber);
     }
 
 }
