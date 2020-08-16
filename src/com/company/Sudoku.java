@@ -2,7 +2,7 @@ package com.company;
 
 public class Sudoku {
 
-    int[][] input = new int[9][9];
+    int[][] input;
 
 
     public Sudoku(int[][] input) {
