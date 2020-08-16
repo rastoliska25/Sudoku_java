@@ -14,30 +14,25 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        var dir = Path.of("C:/Users/Rasťo/Desktop/sudoku/in/");
+        Path dir = Path.of("C:/Users/Rasťo/Desktop/sudoku/in/");
 
         List<Path> files = Files.list(dir).collect(Collectors.toList());
 
 
         for (Path file : files) {
-            try {
-                System.out.println("solving: " + file.getFileName());
-                List<Sudoku> sudokuList = Input.createInput(file.toFile());
 
-                for (Sudoku sudoku : sudokuList) {
-                    Backtracking filling = new Backtracking(sudoku.input);
-                    System.out.println("Nevyriešené sudoku:");
+            System.out.println("solving: " + file.getFileName());
+            List<Sudoku> sudokuList = Input.createInput(file.toFile());
+
+            for (Sudoku sudoku : sudokuList) {
+                Backtracking filling = new Backtracking(sudoku.input);
+                System.out.println("Nevyriešené sudoku:");
+                filling.printarray();
+                if (filling.backtracking()) {
+                    System.out.println("Vyriešené sudoku:");
                     filling.printarray();
-                    if (filling.backtracking()) {
-                        System.out.println("Vyriešené sudoku:");
-                        filling.printarray();
-                    } else System.out.println("Sudoku nemá riešenie");
+                } else System.out.println("Sudoku nemá riešenie");
 
-                }
-
-
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
             }
 
 

@@ -12,7 +12,7 @@ public class Input {
     static List<Sudoku> createInput(File sudoku) throws FileNotFoundException {
 
 
-        List<Sudoku> sudokuList = new ArrayList<>();
+        List<Sudoku> sudokuList = new ArrayList<>(); //vytvorí prázdne pole (nekonečny list)
 
         Scanner sc = new Scanner(sudoku);
         int i = 0;
