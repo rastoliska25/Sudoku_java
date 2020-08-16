@@ -5,11 +5,7 @@ public class Conditions {
 
 
     public Conditions(int[][] sudoku) {
-        this.sudoku = new int[9][9];
-
-        for (int i = 0; i < 9; i++) {
-            System.arraycopy(sudoku[i], 0, this.sudoku[i], 0, 9);
-        }
+        this.sudoku = sudoku;
 
 
     }
@@ -36,7 +32,7 @@ public class Conditions {
     }
 
 
-    boolean row(int rowNumber, int fillNumber) {
+    boolean checkNumberInRow(int rowNumber, int fillNumber) {
 
         for (int i = 0; i < 9; i++)
             if (sudoku[rowNumber][i] == fillNumber) {
@@ -46,7 +42,8 @@ public class Conditions {
 
     }
 
-    boolean column(int columnNumber, int fillNumber) {
+
+    boolean checkNumberInColumn(int columnNumber, int fillNumber) {
         for (int i = 0; i < 9; i++)
             if (sudoku[i][columnNumber] == fillNumber) {
                 return true;
@@ -57,7 +54,7 @@ public class Conditions {
 
 
     boolean conditions(int rowNumber, int columnNumber, int fillNumber) {
-        return !column(columnNumber, fillNumber) && !row(rowNumber, fillNumber) && !box(rowNumber, columnNumber, fillNumber);
+        return !checkNumberInColumn(columnNumber, fillNumber) && !checkNumberInRow(rowNumber, fillNumber) && !box(rowNumber, columnNumber, fillNumber);
     }
 
 }

@@ -23,7 +23,7 @@ public class Main {
         });
 */
 
-Input input = new Input();
+        Input input = new Input();
         input.createInput(sudoku);
         Backtracking filling = new Backtracking(input.getInput());
 
