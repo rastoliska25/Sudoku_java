@@ -1,23 +1,16 @@
 package com.company;
 
 public class Backtracking {
-
-    int[][] sudokuin =
-            {
-                    {9,0,0,1,0,0,0,0,5},
-                    {0,0,5,0,9,0,2,0,1},
-                    {8,0,0,0,4,0,0,0,0},
-                    {0,0,0,0,8,0,0,0,0},
-                    {0,0,0,7,0,0,0,0,0},
-                    {0,0,0,0,2,6,0,0,9},
-                    {2,0,0,3,0,0,0,0,6},
-                    {0,0,0,2,0,0,9,0,0},
-                    {0,0,1,9,0,4,5,7,0},
-            };
+    int[][] sudokuin;
 
 
+    Conditions numberTry;
 
-    Conditions numberTry = new Conditions(sudokuin);
+    public Backtracking(int[][] input) {
+        sudokuin = input;
+        numberTry = new Conditions(sudokuin);
+    }
+
 
     boolean emptybox(int rowNumber, int columnNumber) {
         return numberTry.sudoku[rowNumber][columnNumber] == 0;
@@ -32,29 +25,29 @@ public class Backtracking {
                             numberTry.sudoku[i][j] = x;
                             if (backtracking()) {
                                 return true;
-                            }
-                            else {
+                            } else {
                                 numberTry.sudoku[i][j] = 0;
                             }
                         }
-                    }   return false;
+                    }
+                    return false;
                 }
             }
 
-        } return true;
+        }
+        return true;
     }
 
 
-    public void printarray(){
-        for (int i = 0; i<9;i++){
-            for (int j=0;j<9;j++){
+    public void printarray() {
+        for (int i = 0; i < 9; i++) {
+            for (int j = 0; j < 9; j++) {
                 System.out.print(numberTry.sudoku[i][j]);
             }
             System.out.println();
         }
         System.out.println();
     }
-
 
 
 }
