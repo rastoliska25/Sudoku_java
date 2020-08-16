@@ -6,7 +6,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -14,27 +16,31 @@ public class Main {
 
         var dir = Path.of("C:/Users/Rasťo/Desktop/sudoku/in/");
 
-        File sudoku = new File("C:/Users/Rasťo/Desktop/sudoku/in/top95.txt");
+        List<Path> files = Files.list(dir).collect(Collectors.toList());
 
-        var files = Files.list(dir);
 
-       /* files.forEach(file -> {
-            .solve(file)
+        for (Path file : files) {
+            try {
+                System.out.println("solving: " + file.getFileName());
+                List<Sudoku> sudokuList = Input.createInput(file.toFile());
+
+                for (Sudoku sudoku : sudokuList) {
+                    Backtracking filling = new Backtracking(sudoku.input);
+                    System.out.println("Nevyriešené sudoku:");
+                    filling.printarray();
+                    if (filling.backtracking()) {
+                        System.out.println("Vyriešené sudoku:");
+                        filling.printarray();
+                    } else System.out.println("Sudoku nemá riešenie");
+
+                }
+
+
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            }
+
+
         });
-*/
-
-        Input input = new Input();
-        input.createInput(sudoku);
-        Backtracking filling = new Backtracking(input.getInput());
-
-
-        System.out.println("Nevyriešené sudoku:");
-        filling.printarray();
-        if (filling.backtracking()) {
-            System.out.println("Vyriešené sudoku:");
-            filling.printarray();
-        } else System.out.println("Sudoku nemá riešenie");
-
-
     }
 }
