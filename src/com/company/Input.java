@@ -44,7 +44,6 @@ public class Input {
 
                 }
 
-
             }
             if (amount % 81 == 0) {
                 sudokuList.add(new Sudoku(input));

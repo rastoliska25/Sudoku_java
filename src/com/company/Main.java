@@ -15,15 +15,10 @@ public class Main {
 
         List<Path> files = Files.list(dir).collect(Collectors.toList());
 
-
         for (Path file : files) {
 
             System.out.println("solving: " + file.getFileName());
             List<Sudoku> sudokuList = Input.createInput(file.toFile());
-
-            if (sudokuList.isEmpty()) {
-                System.out.println("sudoku list is empty!!!");
-            }
 
             for (Sudoku sudoku : sudokuList) {
                 Backtracking filling = new Backtracking(sudoku.input);
@@ -35,8 +30,6 @@ public class Main {
                 } else System.out.println("Sudoku nemá riešenie");
 
             }
-
-
         }
     }
 }
