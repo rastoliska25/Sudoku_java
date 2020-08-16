@@ -1,6 +1,6 @@
 package com.company;
 
-public class Doplnanie {
+public class Backtracking {
 
     int[][] sudokuin =
             {
@@ -17,7 +17,7 @@ public class Doplnanie {
 
 
 
-    Zisteniecisla numberTry = new Zisteniecisla(sudokuin);
+    Conditions numberTry = new Conditions(sudokuin);
 
     boolean emptybox(int rowNumber, int columnNumber) {
         return numberTry.sudoku[rowNumber][columnNumber] == 0;
@@ -37,8 +37,7 @@ public class Doplnanie {
                                 numberTry.sudoku[i][j] = 0;
                             }
                         }
-                    }
-                    return false;
+                    }   return false;
                 }
             }
 

@@ -8,9 +8,9 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException {
-        Doplnanie filling = new Doplnanie();
+        Backtracking filling = new Backtracking();
 
-        File sudoku = new File("C:/Users/Rasťo/Desktop/sudoku/in/2006.txt");
+        File sudoku = new File("C:/Users/Rasťo//Desktop/sudoku/in/2006.txt");
         Scanner sc = new Scanner(sudoku);
 
         System.out.println(sc.nextLine());

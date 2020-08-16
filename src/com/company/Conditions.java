@@ -1,10 +1,10 @@
 package com.company;
 
-public class Zisteniecisla {
+public class Conditions {
     int[][] sudoku;
 
 
-public Zisteniecisla(int[][] sudoku) {
+public Conditions(int[][] sudoku) {
     this.sudoku = new int[9][9];
 
     for (int i=0; i<9;i++){
