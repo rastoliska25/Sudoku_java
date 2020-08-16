@@ -23,9 +23,8 @@ public class Input {
             String line = sc.nextLine();
 
             for (char c : line.toCharArray()) {
-                amount++;
                 if ((c < 58) && (c > 47)) {
-
+                    amount++;
                     input[i][j] = c - 48;
                     j++;
                     if (j % 9 == 0) {
@@ -34,6 +33,7 @@ public class Input {
                         if (i == 9) break;
                     }
                 } else if (c == '.' || c == ' ') {
+                    amount++;
                     input[i][j] = 0;
                     j++;
                     if (j % 9 == 0) {

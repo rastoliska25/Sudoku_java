@@ -1,13 +1,10 @@
 package com.company;
 
 
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
-import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Main {
@@ -23,6 +20,10 @@ public class Main {
 
             System.out.println("solving: " + file.getFileName());
             List<Sudoku> sudokuList = Input.createInput(file.toFile());
+
+            if (sudokuList.isEmpty()) {
+                System.out.println("sudoku list is empty!!!");
+            }
 
             for (Sudoku sudoku : sudokuList) {
                 Backtracking filling = new Backtracking(sudoku.input);
